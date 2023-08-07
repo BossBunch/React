@@ -1,6 +1,9 @@
 import axios from 'axios';
 
+//namespace
 const PullRequestsApi = {};
+//check if namespace exist
+//const PullRequestsApi = PullRequestsApi || {};
 
 PullRequestsApi.GetPullRequests = async () => {
 	const response = await axios.get('https://api.github.com/repos/BossBunch/UI.MvcApplication/pulls', {

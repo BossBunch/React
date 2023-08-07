@@ -99,19 +99,6 @@ const FormDemo = () => {
                         </div>
                     ))}
                 </div>
-                {users.map((category) => (
-                    <div key={category.id}>
-                        <div>{category.Name}</div>
-                        {category.Data.map((category1) => (
-                            <div key={category1.key}>
-                                {category1.showHeader ? <div>{category1.key}</div> : ''}
-                                <div>{category1.value}</div>
-
-                            </div>
-                        ))}
-
-                    </div>
-                ))}
             </div>
             <div>
 

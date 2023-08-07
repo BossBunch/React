@@ -1,6 +1,6 @@
 import './category-items.styles.scss';
 import CategoryItem from '../category-item/category-item.component';
-import pullRequests from '../../service/pullRequest.js';
+import pullRequests from '../../service/modulePR';
 //import PullRequests from '../../service/pullRequest.js';
 import { useContext } from 'react';
 import UserContext from "../../context/UserContext";
@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 const CategoryItems = () => {
 
     useEffect(() => {
-        const data = pullRequests();
+        const data = pullRequests.GetPullRequests();
         //const title = PullRequests.GetPullRequests();
         console.log(data);
     }, [])
