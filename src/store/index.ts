@@ -2,7 +2,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 export const songSlice = createSlice({
     name: 'song',
-    initialState:['Fist Song'],
+    initialState: ['Fist Song'],
     reducers: {
         addSong(state, action) {
             state.push(action.payload);

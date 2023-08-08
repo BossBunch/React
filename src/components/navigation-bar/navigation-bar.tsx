@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import './navigation.styles.scss';
-import { ReactComponent as CrownLogo } from '../../assets/crown.svg';
+import CrownLogo  from '../../assets/crown.svg';
 
 function NavigationBar() {
     return (
         <div className="navigation">
             <Link to="/">
                 <div className="logo-container">
-                    <CrownLogo className="logo" />
+                    <img src={CrownLogo}  className="logo" />
                 </div>
             </Link>
             

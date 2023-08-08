@@ -1,17 +1,22 @@
-import {  Fragment, useState } from "react";
+import { parse } from "path";
+import {  Fragment, useState ,ChangeEvent,FormEvent} from "react";
 import ApplicationMasterApi from '../../service/applicationMaster';
 
-const CreateUser = ({ parentData }) => {
-    const [applicationDetail, setApplicationDetail] = useState({
+type ParentProp ={
+    parentData: (newApp: ApplicationMasterApi.IApplicationMaster)=> void
+}
+
+const CreateUser = ({ parentData }: ParentProp) => {
+    const [applicationDetail, setApplicationDetail] = useState<ApplicationMasterApi.IApplicationMaster>({
         applicationId: 100,
         applicationName: '',
         applicationCategory: ''
     });
 
-    const handleTextChange = (event) => {
-        if (event.target.name == applicationDetail.applicationId) {
+    const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.name == applicationDetail.applicationId.toString()) {
 
-            setApplicationDetail({ ...applicationDetail, applicationId: event.target.value });
+            setApplicationDetail({ ...applicationDetail, applicationId: parseInt(event.target.value) });
         }
         else if (event.target.name == applicationDetail.applicationName) {
 
@@ -23,7 +28,7 @@ const CreateUser = ({ parentData }) => {
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event : FormEvent) => {
         alert(JSON.stringify(applicationDetail));
         console.log(applicationDetail);
         event.preventDefault();
@@ -42,7 +47,7 @@ const CreateUser = ({ parentData }) => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Application Id:</label>
-                    <input type="text" onChange={handleTextChange} name={applicationDetail.applicationId} />
+                    <input type="text" onChange={handleTextChange} name={applicationDetail.applicationId.toString()} />
                 </div>
                 <div>
                     <label>ApplicationName:</label>

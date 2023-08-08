@@ -20,8 +20,16 @@ import './category-item.styles.scss';
 
 //}
 
+interface ICategory {
+    category: {
+        id: number,
+        imageUrl: string,
+        title: string
+    }
+}
 
-const CategoryItem = ({ category }) => {
+
+const CategoryItem = ({ category }: ICategory) => {
   
 
     return (

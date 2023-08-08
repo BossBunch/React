@@ -2,69 +2,82 @@ import './formDemo.styles.scss';
 import * as React from "react";
 
 const FormDemo = () => {
+    interface IData {
+        key: string,
+        value: string
+    }
+
+    interface IUsers {
+        id: number,
+        Name: string,
+        Data: Array<IData>
+    }
+
+    //const objData: IData[] = ,
 
 
+    //];
 
 
-    const users = [
+    const users: IUsers[] = [
         {
-            "id": 1,
-            "Name": "Maxwell",
-            "Data": [
+            id: 1,
+            Name: "Maxwell",
+            Data: [
                 {
 
-                    "key": "location",
-                    "value": "Dadar"
+                    key: "location",
+                    value: "Dadar"
                 },
                 {
-                    "key": "age",
-                    "value": "60"
+                    key: "age",
+                    value: "60"
                 },
                 {
-                    "key": "homeTown",
-                    "value": "Mumbai"
+                    key: "homeTown",
+                    value: "Mumbai"
                 },
                 {
-                    "key": "experience",
-                    "value": "13"
+                    key: "experience",
+                    value: "13"
                 }
             ]
         },
         {
-            "id": 2,
-            "Name": "Akshay",
-            "Data": [
+            id: 2,
+            Name: "Abhijeet",
+            Data: [
                 {
-                    
-                    "key": "location",
-                    "value": "Thane"
+                    key: "location",
+                    value: "Thane"
                 },
                 {
-                    
-                    "key": "age",
-                    "value": "25"
+
+                    key: "age",
+                    value: "25"
                 },
                 {
-                    
-                    "key": "homeTown",
-                    "value": "Mumbai"
+
+                    key: "homeTown",
+                    value: "Mumbai"
                 },
-                ,
+
                 {
-                    
-                    "key": "experience",
-                    "value": "12"
+
+                    key: "experience",
+                    value: "12"
                 }
+
             ]
         }
 
     ];
 
-    const jsonColumns = [
-         "location", "age","homeTown","experience"
+    const jsonColumns: Array<string> = [
+        "location", "age", "homeTown", "experience"
     ];
-  
-        ;
+
+    ;
 
 
     return (
@@ -81,12 +94,12 @@ const FormDemo = () => {
                             ))}
                         </React.Fragment>
                     </div>
-                    {users.map((category) => (
+                    {users.map((category: IUsers) => (
                         <div key={category.id} className="trow">
 
 
                             <div className="tcolumn">{category.Name}</div>
-                            {category.Data.map((category1) => (
+                            {category.Data.map((category1: IData) => (
                                 <React.Fragment key={category1.key}>
                                     <div className="tcolumn">{category1.value}</div>
 

@@ -1,13 +1,16 @@
 import ApplicationMasterApi from '../../service/applicationMaster';
 import { useEffect, useRef, Fragment,useState } from "react";
 import CreateUser from "./child.component";
+import { current } from '@reduxjs/toolkit';
 
 
 
 const Parent = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const dataFetchedRef = useRef(false);
-    const [allApplications, setAllApplications] = useState([]);
+    
+
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const dataFetchedRef = useRef<boolean>(false);
+    const [allApplications, setAllApplications] = useState<ApplicationMasterApi.IApplicationMaster[]>([]);
 
     useEffect(() => {
         if (dataFetchedRef.current) return;
@@ -24,7 +27,7 @@ const Parent = () => {
         });
     }, [])
 
-    const addInParentState = (newApp) => {
+    const addInParentState = (newApp : ApplicationMasterApi.IApplicationMaster):void => {
         setAllApplications([...allApplications, newApp]);
         console.log(allApplications);
     }
@@ -45,7 +48,7 @@ const Parent = () => {
                             <div className="tcolumn tcolumn1">Application Name</div>
                             <div className="tcolumn tcolumn1">Application Category</div>
                         </div>
-                        {allApplications.map((app) => (
+                        {allApplications.map((app : ApplicationMasterApi.IApplicationMaster) => (
                             <div key={app.applicationId} className="trow">
 
                                 <div className="tcolumn">{app.applicationId}</div>

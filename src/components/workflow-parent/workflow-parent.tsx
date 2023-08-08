@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, ChangeEvent, ChangeEventHandler } from "react";
 import StepOne from './stepOne';
+import * as PropTypes from 'prop-types';
+import ApplicationMasterApi from "../../service/applicationMaster";
 
 const WorkflowParent = () => {
     const handleNext = () => {
@@ -9,21 +11,23 @@ const WorkflowParent = () => {
         console.log('Previous');
     }
 
-    const [userName, setUserName] = useState("Maxwell");
-    const [step, setStep] = useState(0);
-    const [applicationDetails, setApplicationDetails] = useState({
+    const [userName, setUserName] = useState<string>("Maxwell");
+    const [step, setStep] = useState<number>(0);
+    const [applicationDetails, setApplicationDetails] = useState<ApplicationMasterApi.IApplicationMaster>({
+        applicationId: 0,
         applicationName: '',
-        applicationId: ''
+        applicationCategory: ''
     });
 
+    
 
-    const handleClick = (event) => {
+    const handleClick = (event: HTMLInputElement) => {
         console.log('Click');
         console.log(userName);
         console.log(applicationDetails);
     }
 
-    const handleTextChange = (event) => {
+    const handleTextChange = (event: ChangeEvent<HTMLInputElement>):void =>  {
         if (event.target.name == userName) {
             setUserName(event.target.value);
         }
@@ -33,7 +37,7 @@ const WorkflowParent = () => {
         }
         else if (event.target.name == "applicationId") {
             console.log(event.target.value);
-            setApplicationDetails({ ...applicationDetails, applicationId: event.target.value });
+            setApplicationDetails({ ...applicationDetails, applicationId: parseInt(event.target.value) });
         }
     }
 
@@ -51,17 +55,13 @@ const WorkflowParent = () => {
 
         )
     }
-
-    const childProps = {
-        textChange: handleTextChange
-    }
-
+   
     return (
         <div className="container mt-12">
             <div className="row">
                 <div className="col-lg-12">
                     <form>
-                        <StepOne parent={childProps} />
+                        <StepOne textChange={handleTextChange} />
                         {step2()}
 
                     </form>
@@ -88,4 +88,4 @@ const WorkflowParent = () => {
     )
 }
 
-export default WorkflowParent
+export default WorkflowParent;
