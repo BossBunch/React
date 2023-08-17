@@ -2,11 +2,12 @@ import {  Fragment, useState } from "react";
 import ApplicationMasterApi from '../../service/applicationMaster';
 
 const CreateUser = ({ parentData }) => {
-    const [applicationDetail, setApplicationDetail] = useState({
-        applicationId: 100,
+    const initialState = {
+        id: 0,
         applicationName: '',
         applicationCategory: ''
-    });
+    };
+    const [applicationDetail, setApplicationDetail] = useState(initialState);
 
     const handleTextChange = (event) => {
         if (event.target.name == applicationDetail.applicationId) {
@@ -31,6 +32,7 @@ const CreateUser = ({ parentData }) => {
             console.log('pushing to allApplications');
             parentData(data);
             console.log('pushing to allApplications done');
+            setApplicationDetail({ ...applicationDetail, ...initialState });
         });
         //setAllApplications([...allApplications, data]);
 
@@ -42,15 +44,16 @@ const CreateUser = ({ parentData }) => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Application Id:</label>
-                    <input type="text" onChange={handleTextChange} name={applicationDetail.applicationId} />
+                    <label>{applicationDetail.id}</label>
+                    
                 </div>
                 <div>
                     <label>ApplicationName:</label>
-                    <input type="text" onChange={handleTextChange} name={applicationDetail.applicationName} />
+                    <input type="text" value={applicationDetail.applicationName} onChange={handleTextChange} name={applicationDetail.applicationName} />
                 </div>
                 <div>
                     <label>Application Category</label>
-                    <input type="text" onChange={handleTextChange} name={applicationDetail.applicationCategory} />
+                    <input type="text" value={applicationDetail.applicationCategory} onChange={handleTextChange} name={applicationDetail.applicationCategory} />
                 </div>
                 <button type="submit" >Create Application</button>
             </form>

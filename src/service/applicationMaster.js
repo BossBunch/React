@@ -20,7 +20,7 @@ ApplicationMasterApi.GetData = async () => {
 	//const data = await response;
 	//console.log({ data })
 	console.log('Getting all application data from Api');
-	const response = await axios.get('/ApplicationMaster', {
+	const response = await axios.get('http://localhost:3001/Applications', {
 		headers:
 		{
 			'content-type': 'application/json'
@@ -37,7 +37,7 @@ ApplicationMasterApi.GetData = async () => {
 }
 
 ApplicationMasterApi.Create = async (data) => {
-	const response = await axios.post('/ApplicationMaster',data, {
+	const response = await axios.post('http://localhost:3001/Applications',data, {
 		headers:
 		{
 			'content-type': 'application/json',

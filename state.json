@@ -1,0 +1,29 @@
+{
+  "loggedInUser": {
+    "username": "",
+    "role": ""
+  },
+  "workflow": {
+    "activityDetails": {
+
+    },
+    "applicationActivityMapping": {
+
+    },
+    "formFields": [
+
+    ]
+  },
+  "MasterDetails": {
+    "applicationMaster": [],
+    "states": [
+      "Maharashtra"
+    ]
+  }
+
+}
+,
+{
+  "song": [],
+  "movie": []
+}

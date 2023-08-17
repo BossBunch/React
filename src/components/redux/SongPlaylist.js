@@ -14,7 +14,7 @@ function SongPlaylist() {
         const action = addSong(song);
         console.log(action);
         dispatch(action);
-        console.log(store.getState());
+        console.log("store",store.getState());
 
     };
     const handleSongRemove = (song) => {

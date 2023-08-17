@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "Applications": [
+    {
+      "id": 1,
+      "applicationName": "ISAC",
+      "applicationCategory": "data"
+    },
+    {
+      "Id": 0,
+      "applicationName": "ISAC-22",
+      "applicationCategory": "B",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "applicationName": "ISAC-8979",
+      "applicationCategory": "B"
+    },
+    {
+      "id": 4,
+      "applicationName": "Maxwell",
+      "applicationCategory": "bmmm"
+    },
+    {
+      "id": 5,
+      "applicationName": "New",
+      "applicationCategory": "avc"
+    },
+    {
+      "id": 6,
+      "applicationName": "kkk",
+      "applicationCategory": "bjbjjbbm"
+    }
+  ]
+}

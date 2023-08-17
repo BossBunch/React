@@ -8,23 +8,24 @@ import Parent from './components/ParentChild/parent.component';
 import ReducerExample from './components/ReducerExample/reducerExample.component';
 import ParentRedux from './components/redux/ParentRedux';
 import './store/index';
-
+import { Provider } from './context/UserContext';
 
 const App = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Home /> } >
-                <Route index element={<CategoryItems />} />
-                <Route path="/shop" element={<div>This is the shop page  </div>} />
-                <Route path="/FormDemo" element={<FormDemo />} />
-                <Route path="/Workflow" element={<WorkflowParent />} />
-                <Route path="/ParentChild" element={<Parent />} />
-                <Route path="/Reducer" element={<ReducerExample />} />
-                <Route path="/Redux" element={<ParentRedux />} />
-                
-            </Route>
-        </Routes>
-        ); 
+        <Provider>
+            <Routes>
+                <Route path="/" element={<Home />} >
+                    <Route index element={<CategoryItems />} />
+                    <Route path="/shop" element={<div>This is the shop page  </div>} />
+                    <Route path="/FormDemo" element={<FormDemo />} />
+                    <Route path="/Workflow" element={<WorkflowParent />} />
+                    <Route path="/ParentChild" element={<Parent />} />
+                    <Route path="/Reducer" element={<ReducerExample />} />
+                    <Route path="/Redux" element={<ParentRedux />} /> 
+                </Route>
+            </Routes>
+        </Provider>
+    );
 };
 
 export default App;

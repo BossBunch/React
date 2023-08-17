@@ -46,9 +46,9 @@ const Parent = () => {
                             <div className="tcolumn tcolumn1">Application Category</div>
                         </div>
                         {allApplications.map((app) => (
-                            <div key={app.applicationId} className="trow">
+                            <div key={app.id} className="trow">
 
-                                <div className="tcolumn">{app.applicationId}</div>
+                                <div className="tcolumn">{app.id}</div>
                                 <div className="tcolumn">{app.applicationName}</div>
                                 <div className="tcolumn">{app.applicationCategory}</div>
 
